@@ -1,12 +1,36 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>org.richfaces.tests</groupId>
-  <artifactId>richfaces-bootstrap-component-objects-parent</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>pom</packaging>
-  <modules>
-      <module>richfaces-bootstrap-component-obejcts-api</module>
-      <module>richfaces-bootstrap-component-objects-impl</module>
-      <module>richfaces-bootstrap-component-objects-ftest</module>
-  </modules>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.richfaces.tests</groupId>
+    <artifactId>richfaces-bootstrap-component-objects-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>richfaces-bootstrap-component-obejcts-api</module>
+        <module>richfaces-bootstrap-component-objects-impl</module>
+        <module>richfaces-bootstrap-component-objects-ftest</module>
+    </modules>
+
+    <properties>
+        <graphene.version>2.0.0-SNAPSHOT</graphene.version>
+        <version.selenium>2.0rc2</version.selenium>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.jboss.arquillian.graphene</groupId>
+                <artifactId>graphene-webdriver-spi</artifactId>
+                <version>${graphene.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.seleniumhq.selenium</groupId>
+                <artifactId>selenium</artifactId>
+                <version>${version.selenium}</version>
+                <type>pom</type>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>
