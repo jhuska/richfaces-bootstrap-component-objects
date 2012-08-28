@@ -1,4 +1,4 @@
-richfaces-bootstrap-component-obejcts
+richfaces-bootstrap-component-objects
 =====================================
 
 Richfaces-Bootsrap component objects
