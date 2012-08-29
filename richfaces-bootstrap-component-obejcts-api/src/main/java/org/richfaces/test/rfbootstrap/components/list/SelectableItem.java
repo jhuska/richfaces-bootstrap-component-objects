@@ -1,6 +1,6 @@
 package org.richfaces.test.rfbootstrap.components.list;
 
-public interface SelectItem<T> {
+public interface SelectableItem<T> {
 
     /**
      * Returns the value of this select item.
