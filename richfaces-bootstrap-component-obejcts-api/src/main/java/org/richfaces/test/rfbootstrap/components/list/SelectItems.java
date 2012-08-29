@@ -4,14 +4,14 @@ import java.util.List;
 
 import org.jboss.arquillian.graphene.spi.components.common.Component;
 
-public interface SelectList<T> extends Component {
+public interface SelectItems<T> extends Component {
 
     /**
      * 
      * @return Returns number of select items which this ordering list has.
      */
     int getNumberOfSelectItems();
-    
+
     /**
      * @return Returns all select items, that is, items which can be selected and then ordered.
      */
@@ -50,10 +50,26 @@ public interface SelectList<T> extends Component {
      * Selects items according to the given index, so that they can be ordered. If it is not possible to select more than one
      * item (and more than one items to select are passed as parameters), exception is thrown.
      * 
-     * @param index index of the item to be selected 
-     * @throws IllegalStateException when there is passed more than one item to select,
-     *        and ordering list does support multiple items selecting
+     * @param index index of the item to be selected
+     * @throws IllegalStateException when there is passed more than one item to select, and ordering list does support multiple
+     *         items selecting
      */
     void selectItem(int... indexes);
+
+    /**
+     * Drags and drops the desired select item to the desired position.
+     * 
+     * @param indexOfItemToDrag index of item which will be dragged
+     * @param indexOfItemToDrop index of item on which will be the dragged item dropped
+     */
+    void dragAndDropAtPosition(int indexOfItemToDrag, int indexOfItemToDrop);
+
+    /**
+     * Drags and drops the desired select item to the desired position.
+     * 
+     * @param itemToDrag item which will be dragged.
+     * @param itemToDrop item on which will be the dragged item dropped.
+     */
+    void dragAndDropAtPosition(SelectableItem<T> itemToDrag, SelectableItem<T> itemToDrop);
 
 }

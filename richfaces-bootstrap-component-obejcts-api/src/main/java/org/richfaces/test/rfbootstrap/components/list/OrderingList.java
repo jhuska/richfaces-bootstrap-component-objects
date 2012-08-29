@@ -2,112 +2,83 @@ package org.richfaces.test.rfbootstrap.components.list;
 
 import org.jboss.arquillian.graphene.spi.components.common.Component;
 
-
 public interface OrderingList<T> extends Component {
 
     /**
      * 
-     * @return Returns the select list of this ordering list.
+     * @return Returns the select items list of this ordering list.
      */
-    SelectList<T> getSelectList();
-    
-    /**
-     * Goes up by one position with selected item.
-     * 
-     * @throws IllegalStateException when no item is selected.
-     */
-    void goUp();
+    SelectItems<T> getSelectItems();
 
     /**
-     * Goes up by one position with given item.
+     * Goes up by one position with given item/s.
      * 
-     * @param item select item to go up by one position with
+     * @param items select item/s to go up by one position with
+     * @throws IllegalArgumentException when any of the given item/s is not in the select items anymore
+     * @throws IllegalStateException when invoking with no parameters and simultaneously no items are selected
      */
-    void goUp(SelectableItem<T> item);
+    void goUp(SelectableItem<T>... items);
 
     /**
-     * Goes up by one position with item of given index.
+     * Goes up by one position with item/s of given index/es.
      * 
-     * @param indexOfSelectItem index of select item to go up by one position with
+     * @param indexesOfSelectItems index/es of select item/s to go up by one position with
+     * @throws IllegalArgumentException when the given item/s is not in the select items anymore
+     * @throws IllegalStateException when invoking with no parameters and simultaneously no items are selected
      */
-    void goUp(int indexOfSelectItem);
+    void goUp(int... indexesOfSelectItems);
 
     /**
-     * Goes down by one position with selected item.
+     * Goes down by one position with given item/s.
      * 
-     * @throws IllegalStateException when no item is selected.
+     * @param items select item/s to go down by one position with
+     * @throws IllegalArgumentException when the given item/s is not in the select items anymore
+     * @throws IllegalStateException when invoking with no parameters and simultaneously no items are selected
      */
-    void goDown();
+    void goDown(SelectableItem<T>... item);
 
     /**
-     * Goes down by one position with given item.
+     * Goes down by one position with item/s of given index/es.
      * 
-     * @param item select item to go down by one position with
+     * @param indexOfSelectItems index/ex of select item/s to go up by one position with
+     * @throws IllegalArgumentException when the given item/s is not in the select items anymore
+     * @throws IllegalStateException when invoking with no parameters and simultaneously no items are selected
      */
-    void goDown(SelectableItem<T> item);
+    void goDown(int... indexOfSelectItems);
 
     /**
-     * Goes down by one position with item of given index.
+     * Goes to the bottom of the list with given item/s.
      * 
-     * @param indexOfSelectItem index of select item to go up by one position with
+     * @param items select item/s to go to the bottom of the list with
+     * @throws IllegalArgumentException when the given item/s is not in the select items anymore
+     * @throws IllegalStateException when invoking with no parameters and simultaneously no items are selected
      */
-    void goDown(int indexOfSelectItem);
+    void goLast(SelectableItem<T>... items);
 
     /**
-     * Goes to the bottom of the list with selected item.
+     * Goes to the bottom of the list with item/s of given index/es.
      * 
-     * @throws IllegalStateException when no item is selected.
+     * @param indexOfSelectItems index/es of select item/s to go to the bottom of the list with
+     * @throws IllegalArgumentException when the given item/s is not in the select items anymore
+     * @throws IllegalStateException when invoking with no parameters and simultaneously no items are selected
      */
-    void goLast();
+    void goLast(int... indexOfSelectItems);
 
     /**
-     * Goes to the bottom of the list with given item.
+     * Goes to the top of the list with given item/s.
      * 
-     * @param item select item to go to the bottom of the list with
+     * @param items select item/s to go to the top of the list with
+     * @throws IllegalArgumentException when the given item/s is not in the select items anymore
+     * @throws IllegalStateException when invoking with no parameters and simultaneously no items are selected
      */
-    void goLast(SelectableItem<T> item);
+    void goFirst(SelectableItem<T>... items);
 
     /**
-     * Goes to the bottom of the list with item of given index.
+     * Goes to the top of the list with item/s of given index/es.
      * 
-     * @param indexOfSelectItem index of select item to go to the bottom of the list with
+     * @param indexOfSelectItems index/es of select item/es to go to the top of the list with
+     * @throws IllegalArgumentException when the given item/s is not in the select items anymore
+     * @throws IllegalStateException when invoking with no parameters and simultaneously no items are selected
      */
-    void goLast(int indexOfSelectItem);
-
-    /**
-     * Goes to the top of the list with selected item.
-     * 
-     * @throws IllegalStateException when no item is selected.
-     */
-    void goFirst();
-
-    /**
-     * Goes to the top of the list with given item.
-     * 
-     * @param item select item to go to the top of the list with
-     */
-    void goFirst(SelectableItem<T> item);
-
-    /**
-     * Goes to the top of the list with item of given index.
-     * 
-     * @param indexOfSelectItem index of select item to go to the top of the list with
-     */
-    void goFirst(int indexOfSelectItem);
-
-    /**
-     * Drags and drops the desired select item to the desired position.
-     * 
-     * @param indexOfItemToDrag index of item which will be dragged
-     * @param indexOfItemToDrop index of item on which will be the dragged item dropped
-     */
-    void dragAndDropAtPosition(int indexOfItemToDrag, int indexOfItemToDrop);
-
-    /**
-     * Drags and drops the desired select item to the desired position.
-     * 
-     * @param itemToDrag item which will be dragged.
-     * @param itemToDrop item on which will be the dragged item dropped.
-     */
-    void dragAndDropAtPosition(SelectableItem<T> itemToDrag, SelectableItem<T> itemToDrop);
+    void goFirst(int... indexOfSelectItems);
 }
