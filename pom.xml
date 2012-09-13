@@ -14,15 +14,57 @@
     </modules>
 
     <properties>
-        <graphene.version>2.0.0-SNAPSHOT</graphene.version>
+        <graphene.version>2.0.0.Alpha3-SNAPSHOT</graphene.version>
         <version.selenium>2.0rc2</version.selenium>
+
+        <version.arquillian.core>1.0.0.CR7</version.arquillian.core>
+        <version.arquillian.drone>1.0.0.CR4</version.arquillian.drone>
+
+        <version.testng>6.7</version.testng>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+        <!-- Arquillian dependencies -->
+            <dependency>
+                <groupId>org.jboss.arquillian</groupId>
+                <artifactId>arquillian-bom</artifactId>
+                <version>${version.arquillian.core}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+            
+            <!-- Arquillian Drone dependencies and Selenium dependencies -->
+            <dependency>
+                <groupId>org.jboss.arquillian.extension</groupId>
+                <artifactId>arquillian-drone-bom</artifactId>
+                <version>${version.arquillian.drone}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.jboss.arquillian.graphene</groupId>
+                <artifactId>graphene-webdriver</artifactId>
+                <version>${graphene.version}</version>
+                <type>pom</type>
+            </dependency>
+
+            <dependency>
+                <groupId>org.testng</groupId>
+                <artifactId>testng</artifactId>
+                <scope>test</scope>
+                <version>${version.testng}</version>
+            </dependency>
+
             <dependency>
                 <groupId>org.jboss.arquillian.graphene</groupId>
                 <artifactId>graphene-webdriver-spi</artifactId>
+                <version>${graphene.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.arquillian.graphene</groupId>
+                <artifactId>graphene-component-api</artifactId>
                 <version>${graphene.version}</version>
             </dependency>
             <dependency>

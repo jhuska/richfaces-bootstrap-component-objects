@@ -11,7 +11,7 @@
     <artifactId>richfaces-bootstrap-component-obejcts-api</artifactId>
 
     <properties>
-        <graphene.version>2.0.0-SNAPSHOT</graphene.version>
+        <graphene.version>2.0.0.Alpha3-SNAPSHOT</graphene.version>
         <version.selenium>2.0rc2</version.selenium>
     </properties>
 
@@ -19,6 +19,10 @@
         <dependency>
             <groupId>org.jboss.arquillian.graphene</groupId>
             <artifactId>graphene-webdriver-spi</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.arquillian.graphene</groupId>
+            <artifactId>graphene-component-api</artifactId>
         </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
